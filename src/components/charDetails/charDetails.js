@@ -5,26 +5,24 @@ import GotService from '../../services/gotService';
 
 export default class CharDetails extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            char: null,
-        } 
-    }
-
-    gotSerice = new GotService();
+    state = {
+        char: null,
+    } 
+    
+    gotService = new GotService();
 
     updateChar() {
         const {charId} = this.props;
         if (!charId) {
             return;
         }
-        this.gotSerice.getCharacters(charId)
+        this.gotService.getCharacters(charId)
             .then((char) => {
                 this.setState({
                     char: char
                 })
             })
+        // this.foo.bar = 0;
     }
 
     componentDidMount() {
@@ -40,7 +38,7 @@ export default class CharDetails extends Component {
     render() {
 
         if (!this.state.char) {
-            return <span className='select_error'>Please, select a character</span>
+            return <span className="select_error">Please, select a character</span>
         }
 
         const {name, gender, born, died, culture} = this.state.char;

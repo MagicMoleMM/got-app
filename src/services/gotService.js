@@ -4,7 +4,7 @@ export default class GotService {
 
     }
 
-    async getResource(url) {
+    getResource = async (url) => {
         const res = await fetch(`${this._apiBase}${url}`);
         if (!res.ok) {
             throw new Error(`Could not fetch ${url}, status: ${res.status}`);
@@ -12,34 +12,42 @@ export default class GotService {
         return await res.json();
     };
 
-    async getAllCharacters() {
+    getAllCharacters = async () => {
         const res = await this.getResource('/characters?page=5');
         return res.map(this._transformCharacter);
     }
 
-    async getCharacters(id) {
+    getCharacters = async(id) => {
         const character = await this.getResource(`/characters/${id}/`);
         return this._transformCharacter(character);
     }
 
-    getAllHouses() {
-        const res = this.getResource(`/houses/`);
+    getAllHouses = async () => {
+        const res = await this.getResource(`/houses/`);
         return res.map(this._transformHouse)
     }
 
-    getHouse(id) {
-        const house = this.getResource(`/houses/${id}/`);
+    getHouse = async (id) => {
+        const house = await this.getResource(`/houses/${id}/`);
         return this._transformHouse(house);
     }
 
-    getAllBooks() {
-        const res = this.getResource(`/book/`);
+    getAllBooks = async () => {
+        const res = await this.getResource(`/books/`);
         return res.map(this._transformBook)
     }
 
-    getBook(id) {
-        const book =  this.getResource(`/book/${id}/`);
+    getBook = async (id)=> {
+        const book = await this.getResource(`/books/${id}/`);
         return this._transformBook(book);
+    }
+
+    isSet(data) {
+        if (data) {
+            return data
+        } else {
+            return 'no data :('
+        }
     }
 
     _transformCharacter(char) {
