@@ -32,7 +32,8 @@ const Header = () => {
         <HeaderBlock>
             <HeaderTitle>
                 <>
-                Game of Thrones DB
+                <Link to='/'>Game of Thrones DB</Link>
+                
                 </>
             </HeaderTitle>
             <HeaderLinks>

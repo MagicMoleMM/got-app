@@ -7,6 +7,7 @@ import ErrorMessage from '../errorMessage';
 import GotService from '../../services/gotService';
 import HousePage from '../Pages/housePage';
 import BookPage from '../Pages/bookPage/bookPage';
+import BooksItem from '../Pages/booksItem';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import './app.css';
 
@@ -62,10 +63,14 @@ export default class App extends Component {
                             </Button>   
                             </Col>
                         </Row>
+
                         <Routes>
                             <Route path='characters' element={<CharacterPage/>}/>
-                            <Route path='books' element={<BookPage/>}/>
                             <Route path='houses' element={<HousePage/>}/>
+                            <Route path='books' element={<BookPage/>}/>
+                            <Route path='books/:id' element={<BooksItem/>}/>
+                             
+                            
                         </Routes>
                     </Container>
                 </>  

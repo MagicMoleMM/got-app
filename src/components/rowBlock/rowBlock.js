@@ -1,6 +1,6 @@
 import React from 'react';
 import {Col, Row} from 'reactstrap';
-
+import { Outlet } from 'react-router-dom';
 
 
 const RowBlock = ({left, right}) => {
@@ -12,6 +12,7 @@ const RowBlock = ({left, right}) => {
             <Col md='6'>
                 {right}
             </Col>
+            <Outlet />
         </Row>
     )
 }
