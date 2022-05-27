@@ -65,6 +65,7 @@ export default class App extends Component {
                         </Row>
 
                         <Routes>
+                            <Route index element={<h1 className='tittle'>Welcome Game of Thrones DB!</h1>}/>
                             <Route path='characters' element={<CharacterPage/>}/>
                             <Route path='houses' element={<HousePage/>}/>
                             <Route path='books' element={<BookPage/>}/>
